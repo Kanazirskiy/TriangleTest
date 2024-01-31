@@ -9,12 +9,11 @@ Triangle::Triangle(double katet_1, double katet_2, double hypotenuse) : katet_1(
 }
 
 
-double Triangle::Square_2katets() {
-    return 0.5 * katet_1 * katet_2;
-}
-
-double Triangle::Square_katet_hyp() {
-    if (katet_2 == 0) 
+double Triangle::solve()
+{
+    if (hypotenuse == 0)
+        return 0.5 * katet_1 * katet_2;
+    else if (katet_2 == 0)
         katet_2 = std::sqrt(hypotenuse * hypotenuse - katet_1 * katet_1);
     else if (katet_1 == 0)
         katet_1 = std::sqrt(hypotenuse * hypotenuse - katet_2 * katet_2);
@@ -22,8 +21,12 @@ double Triangle::Square_katet_hyp() {
 }
 
 
-int main()
-{
-    Triangle a(3, 4, 5);
-    std::cout << a.Square_2katets()<<'\n';
+void Triangle::set(double katet_1, double katet_2, double hypotenuse) {
+    this->katet_1 = katet_1;
+    this->katet_2 = katet_2;
+    this->hypotenuse = hypotenuse;
+}
+
+std::tuple<double, double, double> Triangle::get() {
+    return std::make_tuple(katet_1, katet_2, hypotenuse);
 }
