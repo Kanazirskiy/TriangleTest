@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <tuple>
 
 
 class Triangle {
@@ -15,9 +16,10 @@ public:
     Triangle();
     Triangle(double katet_1,double katet_2,double hypotenuse);
 
-    double Square_2katets();
+    double solve();
 
-    double Square_katet_hyp();
+    void set(double katet_1, double katet_2, double hypotenuse);
+    std::tuple<double, double, double> get();
 
 };
 
